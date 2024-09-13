@@ -33,7 +33,10 @@ curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.3/install.sh | bash
 source ~/.bashrc
 ```
 
-5. Install packer and sync plugins:
+5. Change the path in dofile in `init.lua` to point to the vim.conf.lua
+- TODO: Change this to be dynamic and os independent
+
+6. Install packer and sync plugins:
 
 ```bash
 # packer
@@ -49,15 +52,15 @@ nvim .
 :PackerSync
 ```
 
-6. Install any required language servers
-7. Setup tmux and fzf :
+7. Install any required language servers
+8. Setup tmux and fzf :
 
 ```bash
 sudo apt-get install tmux
 sudo apt-get install fzf
 ```
 
-8. Add terminal keybind for fzf (Clt-F in the terminal opens a directory fuzzy finder that runs tmux in selected directory)
+9. Add terminal keybind for fzf (Clt-F in the terminal opens a directory fuzzy finder that runs tmux in selected directory)
 
 Add the following to ~/.bashrc
 
