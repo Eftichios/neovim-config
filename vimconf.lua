@@ -31,3 +31,8 @@ opt.colorcolumn = "80"
 
 opt.list = true
 opt.listchars = 'tab:> ,trail:-,lead:.,multispace:.'
+
+opt.foldenable = false
+opt.foldmethod = 'marker'
+opt.foldmarker = '{,}'
+opt.foldlevel = 0
