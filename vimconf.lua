@@ -14,7 +14,6 @@ opt.wrap = false
 
 opt.swapfile = false
 opt.backup = false
-opt.undodir = os.getenv("HOME") .. "/.vim/undodir"
 opt.undofile = true
 
 opt.hlsearch = false
@@ -30,4 +29,5 @@ opt.updatetime = 50
 
 opt.colorcolumn = "80"
 
-
+opt.list = true
+opt.listchars = 'tab:> ,trail:-,lead:.,multispace:.'

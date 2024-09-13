@@ -3,11 +3,14 @@ local lspconfig = require('lspconfig')
 
 lsp.preset("recommended")
 
+lsp.setup_servers({'dartls', force = true})
+
 lsp.ensure_installed({
 	'tsserver',
 	'eslint',
 	'rust_analyzer',
-    'bashls'
+    'bashls',
+    'clangd'
 })
 
 local cmp = require('cmp')
