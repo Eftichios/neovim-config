@@ -4,48 +4,51 @@
 vim.cmd [[packadd packer.nvim]]
 
 return require('packer').startup(function(use)
-	-- Packer can manage itself
-	use 'wbthomason/packer.nvim'
+    -- Packer can manage itself
+    use 'wbthomason/packer.nvim'
 
-	use {
-		'nvim-telescope/telescope.nvim', tag = '0.1.4',
-		-- or                            , branch = '0.1.x',
-		requires = { {'nvim-lua/plenary.nvim'} }
-	}
+    use {
+        'nvim-telescope/telescope.nvim', tag = '0.1.8',
+        requires = {
+            { 'nvim-lua/plenary.nvim' },
+            { 'nvim-telescope/telescope-fzf-native.nvim' },
+            { 'nvim-telescope/telescope-ui-select.nvim' },
+        }
+    }
 
-	use({ 'rose-pine/neovim', as = 'rose-pine' })
+    --use({ 'rose-pine/neovim', as = 'rose-pine' })
+    use({ 'folke/tokyonight.nvim', as = 'tokyonight' })
 
-	vim.cmd('colorscheme rose-pine')
+    vim.cmd('colorscheme tokyonight-moon')
 
-	use('nvim-treesitter/nvim-treesitter', {run = ':TSUpdate'})
+    use('nvim-treesitter/nvim-treesitter', { run = ':TSUpdate' })
 
-	use('theprimeagen/harpoon')
-	use('mbbill/undotree')
-	use('tpope/vim-fugitive')
+    use('theprimeagen/harpoon')
+    use('mbbill/undotree')
+    use('tpope/vim-fugitive')
 
 
     -- LSP
-	use {
-		'VonHeikemen/lsp-zero.nvim',
-		branch = 'v2.x',
-		requires = {
-			-- LSP Support
-			{'neovim/nvim-lspconfig'},             -- Required
-			{                                      -- Optional
-			'williamboman/mason.nvim',
-			run = function()
-				pcall(vim.cmd, 'MasonUpdate')
-			end,
-		},
-		{'williamboman/mason-lspconfig.nvim'}, -- Optional
-        -- Formatting
-        {'jose-elias-alvarez/null-ls.nvim'},
-        {'MunifTanjim/prettier.nvim'},
+    use {
+        'VonHeikemen/lsp-zero.nvim',
+        branch = 'v2.x',
+        requires = {
+            -- LSP Support
+            { 'neovim/nvim-lspconfig' }, -- Required
+            {                 -- Optional
+                'mason-org/mason.nvim',
+                run = function()
+                    pcall(vim.cmd, 'MasonUpdate')
+                end,
+            },
+            { 'mason-org/mason-lspconfig.nvim' }, -- Optional
+            -- Formatting
+            { 'jose-elias-alvarez/null-ls.nvim' },
 
-		-- Autocompletion
-		{'hrsh7th/nvim-cmp'},     -- Required
-		{'hrsh7th/cmp-nvim-lsp'}, -- Required
-		{'L3MON4D3/LuaSnip'},     -- Required
-	}
-}
+            -- Autocompletion
+            { 'hrsh7th/nvim-cmp' }, -- Required
+            { 'hrsh7th/cmp-nvim-lsp' }, -- Required
+            { 'L3MON4D3/LuaSnip' }, -- Required
+        }
+    }
 end)
