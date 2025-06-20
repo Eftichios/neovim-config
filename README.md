@@ -1,42 +1,38 @@
 # neovim-config
 Configuration files for adding various neovim keybinds and plugins - inspired by ThePrimeagen
 
-Steps:
+## Prerequisites
+- Curl
+- Git
+- Python
+
+Instructions:
 
 1. Clone repo into ~/.config/nvim
-2. Install latest neovim:
-
-```lua
-curl -LO https://github.com/neovim/neovim/releases/latest/download/nvim.appimage
-chmod u+x nvim.appimage
-
-./nvim.appimage --appimage-extract
-./squashfs-root/AppRun --version
-
-# Optional: exposing nvim globally.
-sudo mv squashfs-root /
-sudo ln -s /squashfs-root/AppRun /usr/bin/nvim
-nvim
+2. Install latest neovim: https://github.com/neovim/neovim/blob/master/INSTALL.md
+3. Install xclip
+```bash
+sudo apt-get install xclip
 ```
 
-3. Install node and npm
+4. Install node and npm
 
-```lua
+```bash
 sudo apt-get install nodejs
 sudo apt-get install npm
 ```
 
-4. (Optional) - Install nvm to manage node and npm versions
+5. (Optional) - Install nvm to manage node and npm versions
 
-```lua
+```bash
 curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.3/install.sh | bash
 source ~/.bashrc
 ```
 
-5. Change the path in dofile in `init.lua` to point to the vim.conf.lua
+6. Change the path in dofile in `init.lua` to point to the vim.conf.lua
 - TODO: Change this to be dynamic and os independent
 
-6. Install packer and sync plugins:
+7. Install packer and sync plugins:
 
 ```bash
 # packer
@@ -48,19 +44,20 @@ cd ~/.config/nvim
 nvim .
 
 # go to lua/toncode/packer.lua
+# Note: You might have to do this twice if you get an error
 :source
 :PackerSync
 ```
 
-7. Install any required language servers
-8. Setup tmux and fzf :
+8. Install any required language servers
+9. Setup tmux and fzf
 
 ```bash
 sudo apt-get install tmux
 sudo apt-get install fzf
 ```
 
-9. Add terminal keybind for fzf (Clt-F in the terminal opens a directory fuzzy finder that runs tmux in selected directory)
+10. Add terminal keybind for fzf (Clt-F in the terminal opens a directory fuzzy finder that runs tmux in selected directory)
 
 Add the following to ~/.bashrc
 
