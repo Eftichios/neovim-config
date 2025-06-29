@@ -17,9 +17,12 @@ return require('packer').startup(function(use)
     }
 
     --use({ 'rose-pine/neovim', as = 'rose-pine' })
-    use({ 'folke/tokyonight.nvim', as = 'tokyonight' })
-
-    vim.cmd('colorscheme tokyonight-moon')
+    use({
+        'folke/tokyonight.nvim', as = 'tokyonight',
+        run = function()
+            vim.cmd('colorscheme tokyonight-moon')
+        end,
+    })
 
     use('nvim-treesitter/nvim-treesitter', { run = ':TSUpdate' })
 
